@@ -1,28 +1,16 @@
-<template lang="pug">
-img(alt='Vue logo' src='./assets/logo.png')
-hello-world(msg='Welcome to Your Vue.js App')
+<template>
+    <AppLayout>
+      <router-view />
+    </AppLayout>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
 <style lang="scss">
-@import '../scss/custom.scss';
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+// #app {
+//   --font-family-base: 'Graphik', 'PingFang TC', 'Noto Sans TC', 'sans-serif';
+//   --font-family-italic: 'Graphik Italic', 'PingFang TC', 'Noto Sans TC', 'sans-serif';
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-align: center;
+//   color: #f6f6f6;
+// }
 </style>

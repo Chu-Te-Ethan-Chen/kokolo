@@ -1,4 +1,5 @@
 // Custom.scss
+
 // Option A: Include all of Bootstrap
 
 // Include any default variable overrides here (though functions won't be available)
@@ -6,3 +7,39 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
+
+
+
+$--font-family-base: 'Graphik', 'PingFang TC', 'Noto Sans TC', 'sans-serif';
+$--font-family-italic: 'Graphik Italic', 'PingFang TC', 'Noto Sans TC', 'sans-serif';
+$grid-breakpoints: (
+  xs: 0,
+  sm: 544px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+$--nav-sm-list-bg-color: #121215;
+$--nav-list-bg-color: #202023;
+
+// Option B: Include parts of Bootstrap
+
+// // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+// @import "../node_modules/bootstrap/scss/functions";
+
+// // 2. Include any default variable overrides here
+
+// // 3. Include remainder of required Bootstrap stylesheets
+// @import "../node_modules/bootstrap/scss/variables";
+// @import "../node_modules/bootstrap/scss/mixins";
+
+// // 4. Include any optional Bootstrap components as you like
+// @import "../node_modules/bootstrap/scss/root";
+// @import "../node_modules/bootstrap/scss/reboot";
+// @import "../node_modules/bootstrap/scss/type";
+// @import "../node_modules/bootstrap/scss/images";
+// @import "../node_modules/bootstrap/scss/containers";
+// @import "../node_modules/bootstrap/scss/grid";
+
+// // 5. Add additional custom code here
