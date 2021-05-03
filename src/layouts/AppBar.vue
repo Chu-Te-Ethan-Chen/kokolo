@@ -1,88 +1,88 @@
-<template>
-  <nav class="ggr-nav ggr-nav--dark ggr-nav--scrolling-bg">
-    <div
-      ref="mainNavbar"
-      class="ggr-nav-container"
-      :style="{'background-color': `rgba(18, 18, 21, ${mainNavbarOpacity})`}"
-    >
-      <div class="ggr-header-container"></div>
-      <div class="ggr-nav-list-container d-lg-none">
-        <div class="gc-container">
-          <ul class="ggr-nav-list">
-            <li class="ggr-nav-item ggr-nav-item--logo gc-desktop-visible">
-              <logo />
-            </li>
-            <li class="ggr-nav-item">
-              <a href="/smartscooter/" class="ggr-nav-link nav-list__link--dark">
-                <span>Smartscooter®</span>
-              </a>
-            </li>
-            <li class="ggr-nav-item">
-              <a href="/gogoro-network/" class="ggr-nav-link nav-list__link--dark">
-                <span>Gogoro Network®</span>
-              </a>
-            </li>
-            <li class="ggr-nav-item">
-              <a href="/news/" class="ggr-nav-link nav-list__link--dark">
-                <span>News</span>
-              </a>
-            </li>
-            <li class="ggr-nav-item ggr-nav-item--divider gc-desktop-visible"></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
+<template lang="pug">
+label.close-nested-menu(for='close-menu-toggle' style='display: none')
+nav.ggr-nav.ggr-nav--dark.ggr-nav--scrolling-bg
+  .ggr-nav-container(ref='mainNavbar' style='transform: translateY(0px)' :style='{ \'background-color\': `rgba(18, 18, 21, ${mainNavbarOpacity})` }')
+    .ggr-header-container
+      .gc-container
+        ul.ggr-header
+          li.ggr-header-item.menuicon-item
+            nav-menu-icon(@click='isActive = !isActive')
+          li.ggr-header-item.logo-item
+            logo.
+          li.ggr-header-item.my-gogoro-item
+            nav-login.        
+    transition(name='nav-list')
+      .ggr-nav-list-container(v-show='isActive')
+        .gc-container
+          ul.ggr-nav-list
+            li.ggr-nav-item.ggr-nav-item--logo.gc-desktop-visible
+              logo.       
+            li.ggr-nav-item
+              a.ggr-nav-link.nav-list__link--dark(href='/smartscooter/')
+                span Smartscooter®
+            li.ggr-nav-item
+              a.ggr-nav-link.nav-list__link--dark(href='/gogoro-network/')
+                span Gogoro Network®
+            li.ggr-nav-item
+              a.ggr-nav-link.nav-list__link--dark(href='/news/')
+                span News
+            li.ggr-nav-item.ggr-nav-item--divider.gc-desktop-visible
 </template>
 
 <script>
-import Logo from '@/common/components/Logo'
+import Logo from "@/common/components/Logo";
+import NavMenuIcon from "@/common/components/NavMenuIcon";
+import NavLogin from "@/common/components/NavLogin";
+
 export default {
   name: "DefaultBar",
-  data(){
+  data() {
     return {
       isMounted: false,
-      mainNavbarOpacity: 0
-    }
+      mainNavbarOpacity: 0,
+      isActive: false,
+    };
   },
   components: {
     Logo,
+    NavMenuIcon,
+    NavLogin,
   },
-  created () {
-    window.addEventListener('scroll', this.handlescroll);
+  created() {
+    window.addEventListener("scroll", this.handlescroll);
   },
-  mounted(){
+  mounted() {
     this.isMounted = true;
   },
-  unmounted () {
-    window.removeEventListener('scroll', this.handlescroll);
+  unmounted() {
+    window.removeEventListener("scroll", this.handlescroll);
   },
   methods: {
-    handlescroll () {
+    handlescroll() {
       // Any code to be executed when the window is scrolled
-        if(!this.isMounted) return;
-        const mainNavbar = this.$refs.mainNavbar
-        const height = mainNavbar.clientHeight
-        let scroll = document.documentElement.scrollTop || document.body.scrollTop;
-        const ratio = scroll / parseInt(height)
-        this.mainNavbarOpacity = ratio <= 1 ? ratio : 1
-        return
-    }
-  }
-}
+      if (!this.isMounted) return;
+      const mainNavbar = this.$refs.mainNavbar;
+      const height = mainNavbar.clientHeight;
+      let scroll =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      const ratio = scroll / parseInt(height);
+      this.mainNavbarOpacity = ratio <= 1 ? ratio : 1;
+      return;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
+.close-nested-menu {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+}
 .ggr-nav {
   position: relative;
-}
-.ggr-nav {
-    font-family: $--font-family-base;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-}
-.ggr-nav {
-    z-index: 3000;
 }
 .ggr-nav-container {
     top: 0;
@@ -106,14 +106,49 @@ export default {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
 }
+.ggr-header-container .gc-container {
+    max-width: 100%;
+    padding: 0;
+}
 .gc-container {
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
 }
+.ggr-header {
+    position: relative;
+    z-index: 1;
+    height: 50px;
+}
+.ggr-header {
+    background-color: var(--nav-header-bg-color);
+}
+.ggr-header-item {
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+.logo-item {
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+}
+.my-gogoro-item {
+    right: 0;
+}
 .ggr-nav-list {
     padding-bottom: 100px;
+}
+.ggr-nav-list:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
 }
 .ggr-nav ul {
     list-style: none;
@@ -124,7 +159,6 @@ export default {
     width: 105px;
     height: 100%;
 }
-
 .ggr-nav-item {
     -webkit-transition: background-color .3s;
     transition: background-color .3s;
@@ -143,6 +177,23 @@ export default {
 .nav-list__link--dark, .nav-list__link--dark:focus, .nav-list__link--dark:visited {
     color: #fff;
 }
+@include media-breakpoint-down(sm){
+  .nav-list-enter-active{
+    -webkit-transition:max-height .5s ease-in;
+    transition:max-height .5s ease-in
+  }
+  .nav-list-leave-active{
+    -webkit-transition:max-height .5s;
+    transition:max-height .5s
+  }
+  .nav-list-enter,.nav-list-leave-to{
+    max-height:0
+  }
+  .nav-list-enter-to,.nav-list-leave{
+    overflow:hidden;
+    max-height:calc(100vh - 50px)
+  }
+}
 @include media-breakpoint-up(sm){
   .ggr-nav-list-container {
       background-color: $--nav-sm-list-bg-color;
@@ -158,7 +209,7 @@ export default {
   .ggr-nav-list {
     padding-bottom: 0;
   }
-  .ggr-nav-link[data-v-088e2fe8] {
+  .ggr-nav-link {
     font-size: 13px;
     height: 54px;
     line-height: 54px;
@@ -179,8 +230,25 @@ export default {
     margin-right: -10px;
   }
 }
+@include media-breakpoint-between(md, xl) {
+  .nav-list-enter-active,.nav-list-leave-active{
+    -webkit-transition:opacity .3s,-webkit-transform .5s;
+    transition:opacity .3s,-webkit-transform .5s;
+    transition:transform .5s,opacity .3s;
+    transition:transform .5s,opacity .3s,-webkit-transform .5s
+  }
+  .nav-list-enter,.nav-list-leave-to{
+    opacity:0;-webkit-transform:translateY(-50px);
+    transform:translateY(-50px)
+  }
+}
+@include media-breakpoint-down(lg) { 
+  .gc-desktop-visible {
+    display: none;
+  }
+ }
 @include media-breakpoint-up(lg){
-  .ggr-nav--dark .ggr-nav-container{
+  .ggr-nav--dark .ggr-nav-container, .ggr-nav--light.ggr-nav--nested-menu-opened .ggr-nav-list:before, .ggr-nav--light .ggr-nav-container, .ggr-nav--light:hover .ggr-nav-list:before {
       background-color: #fff;
   }
   .ggr-nav-container {
@@ -195,6 +263,9 @@ export default {
   .ggr-nav-list-container {
     top: 0;
     display: block!important;
+  }
+  .ggr-header-container .gc-container {
+    display: none;
   }
   .gc-container {
     max-width: 940px;
@@ -217,6 +288,11 @@ export default {
   }
   .ggr-nav-item--divider {
     margin-left: auto!important;
+  }
+}
+@include media-breakpoint-up(xl){
+  .gc-container {
+    max-width: 1140px;
   }
 }
 </style>

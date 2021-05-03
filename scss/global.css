@@ -1,3 +1,28 @@
+:root{
+    --font-family-base: 'Graphik', 'PingFang TC', 'Noto Sans TC', 'sans-serif';
+    --font-family-italic: 'Graphik Italic', 'PingFang TC', 'Noto Sans TC', 'sans-serif';
+}
+
+:root {
+    --color-dark-black: #121215;
+    --color-white: #fff;
+    --color-gray: #b9bcbf;
+    --color-opacity-charcoal: rgba(50,50,55,.98);
+    --color-light-gray: #f1f3f3;
+    --color-opacity-light-gray: hsla(0,0%,97%,.98);
+    --color-charcoal: #323237;
+}
+:root {
+    --nav-header-bg-color: var(--color-dark-black);
+    --nav-list-bg-color: #202023;
+    --nav-sm-list-bg-color: var(--color-dark-black);
+    --nav-link-color: var(--color-white);
+    --nav-secondary-text-color: var(--color-gray);
+    --nav-series-bg-color: #202023;
+    --nav-model-menu-bg-color: var(--color-opacity-charcoal);
+    --nav-series-icon-text-active-color: #ffffff;
+    --nav-series-icon-text-inactive-color: #4d4d52;
+}
 a {
     background-color: transparent;
 }
@@ -7,4 +32,24 @@ a {
 }
 a, area, button, [role="button"], input, label, select, summary, textarea {
     touch-action: manipulation;
+}
+.ggr-nav {
+    z-index: 3000;
+}
+.ggr-directory, .ggr-footer, .ggr-nav {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+.ggr-directory ul, .ggr-footer ul, .ggr-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+.nav-list__link--dark, .nav-list__link--dark:focus, .nav-list__link--dark:visited {
+    color: #fff;
 }
