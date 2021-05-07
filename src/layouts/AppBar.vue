@@ -1,6 +1,7 @@
 <template lang="pug">
 label.close-nested-menu(for='close-menu-toggle' style='display: none')
 nav.ggr-nav.ggr-nav--dark.ggr-nav--scrolling-bg
+  input#nav-menustate.nav-menustate.gc-hide(type='checkbox')
   .ggr-nav-container(ref='mainNavbar' style='transform: translateY(0px)' :style='{ \'background-color\': `rgba(18, 18, 21, ${mainNavbarOpacity})` }')
     .ggr-header-container
       .gc-container
@@ -193,6 +194,9 @@ export default {
     overflow:hidden;
     max-height:calc(100vh - 50px)
   }
+  .nav-list__link--dark,.nav-list__link--dark:focus,.nav-list__link--dark:hover,.nav-list__link--dark:visited,.nav-list__link--light,.nav-list__link--light:focus,.nav-list__link--light:hover,.nav-list__link--light:visited{
+      color:#fff
+  }
 }
 @include media-breakpoint-up(sm){
   .ggr-nav-list-container {
@@ -228,6 +232,44 @@ export default {
   }
   .ggr-nav-item:last-child {
     margin-right: -10px;
+  }
+}
+@include media-breakpoint-between(sm, lg) {
+  .ggr-nav-list{
+    bottom: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+    -webkit-transition: opacity .3s,-webkit-transform .6s;
+    transition: opacity .3s,-webkit-transform .6s;
+    transition: opacity .3s,transform .6s;
+    transition: opacity .3s,transform .6s,-webkit-transform .6s;
+  }
+  #nav-menustate:checked~.ggr-nav-container .ggr-nav-list {
+    pointer-events: auto;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+  .nav-list__link--dark:active,.nav-list__link--dark:focus,.nav-list__link--dark:hover,.nav-list__link--light:active,.nav-list__link--light:focus,.nav-list__link--light:hover{
+      color:#00d7ff
+  }
+  .nav-list__link--dark:active .ggr-nav-link-text,.nav-list__link--dark:focus .ggr-nav-link-text,.nav-list__link--dark:hover .ggr-nav-link-text,.nav-list__link--light:active .ggr-nav-link-text,.nav-list__link--light:focus .ggr-nav-link-text,.nav-list__link--light:hover .ggr-nav-link-text{
+      border-color:#00d7ff
+  }
+  .ggr-nav-item--active .nav-list__link--dark,.ggr-nav-item--active .nav-list__link--light{
+      color:#00d7ff
+  }
+  .ggr-nav-item--active .nav-list__link--dark .ggr-nav-link-text,.ggr-nav-item--active .nav-list__link--light .ggr-nav-link-text{
+      border-color:#00d7ff
   }
 }
 @include media-breakpoint-between(md, xl) {
@@ -288,6 +330,9 @@ export default {
   }
   .ggr-nav-item--divider {
     margin-left: auto!important;
+  }
+  .ggr-nav-item--active .nav-list__link--dark,.ggr-nav-item--active .nav-list__link--light,.nav-list__link--dark:active,.nav-list__link--dark:hover,.nav-list__link--light:active,.nav-list__link--light:hover{
+      color:#00d7ff
   }
 }
 @include media-breakpoint-up(xl){

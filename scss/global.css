@@ -53,3 +53,12 @@ label {
 .nav-list__link--dark, .nav-list__link--dark:focus, .nav-list__link--dark:visited {
     color: #fff;
 }
+.nav-list__link--light,.nav-list__link--light:focus,.nav-list__link--light:visited{
+    color:#323237
+}
+.nav-list__link--dark,.nav-list__link--dark:focus,.nav-list__link--dark:visited{
+    color:#fff
+}
+.gc-hide {
+    display: none;
+}

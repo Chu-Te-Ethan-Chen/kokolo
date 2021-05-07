@@ -11,10 +11,10 @@ label.nav-menuicon(for='nav-menustate' :class='{\'nav-menuicon--open\' : isActiv
 export default {
   name: "NavMenuIcon",
   data() {
-    return {
+    return   {
       isActive: false,
-    }
-  }
+    };
+  },
 };
 </script>
 <style lang="scss" scoped>
