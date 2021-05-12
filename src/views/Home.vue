@@ -2,47 +2,112 @@
   <div class="section-hero">
     <div class="banner-container">
       <div
-        id="carouselExampleIndicators"
-        class="carousel slide baner-list"
-        data-bs-ride="carousel"
+        class="banner-list slick-initialized slick-slider slick-dotted"
+        role="toolbar"
       >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active" style="background-color: #F77E36;">
-            <!-- <img src="https://source.unsplash.com/XghsTOU2W24" class="d-block w-100" alt="..."> -->
-          </div>
-          <div class="carousel-item" style="background-color: aquamarine;">
-            <span class="gs-content-layer">
-              <span class="gs-content">
-                <h1 class="gs-title">
-                  A Better Way Forward to
-                  <span class="d-inline-block">Smarter, Cleaner Cities</span>
-                </h1>
-                <span class="gs-desc"
-                  >Gogoro is reinventing urban transportation with an ecosystem
-                  of sustainable energy solutions for the world’s modern
-                  cities.</span
-                >
+        <div aria-live="polite" class="slick-list draggable">
+          <div
+            class="slick-track"
+            role="listbox"
+            style="opacity: 1; width: 2708px;"
+          >
+            <div
+              class="banner banner--viva-mix slick-slide slick-current slick-active"
+              data-theme="dark"
+              data-slick-index="0"
+              aria-hidden="false"
+              tabindex="-1"
+              role="option"
+              aria-describedby="slick-slide00"
+              style="width: 1354px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;"
+            >
+              <div class="banner-content-layer">
+                <h2 class="banner-title">
+                  Gogoro <span class="banner-title__model">VIVA MIX</span>
+                </h2>
+                <div class="banner-slogan">
+                  MIX IT UP
+                </div>
+                <div class="banner-actions">
+                  <a
+                    class="banner-cta"
+                    href="/smartscooter/viva/mix/"
+                    tabindex="0"
+                    >learn more</a
+                  >
+                </div>
+              </div>
+            </div>
+            <a
+              href="/about/"
+              class="hero gs-hero slick-slide"
+              data-theme="dark"
+              data-slick-index="1"
+              aria-hidden="true"
+              tabindex="-1"
+              role="option"
+              aria-describedby="slick-slide01"
+              style="width: 1354px; position: relative; left: -1354px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
+            >
+              <video
+                class="gs-video"
+                muted=""
+                playsinline=""
+                autoplay=""
+                loop=""
+                onplay="this.style.opacity = 1;"
+                style="opacity: 1;"
+              >
+                <source
+                  src="//cdn.gogoro.com/resources/pages/landing-page/gs0528/home_vision_1080_v02.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <span class="gs-content-layer">
+                <span class="gs-content">
+                  <h1 class="gs-title">
+                    A Better Way Forward to
+                    <span class="d-inline-block">Smarter, Cleaner Cities</span>
+                  </h1>
+                  <span class="gs-desc"
+                    >Gogoro is reinventing urban transportation with an
+                    ecosystem of sustainable energy solutions for the world’s
+                    modern cities.</span
+                  >
+                </span>
               </span>
-            </span>
-            <!-- <img src="https://source.unsplash.com/Nh6NsnqYVsI" class="d-block w-100" alt="..."> -->
+            </a>
           </div>
         </div>
+
+        <ul class="slick-dots" style="" role="tablist">
+          <li
+            aria-hidden="false"
+            role="presentation"
+            aria-selected="true"
+            aria-controls="navigation00"
+            id="slick-slide00"
+            @click="activateSlickDot(1)"
+            :class="{ 'slick-active': slickItemActive == 1 }"
+          >
+            <button type="button" data-role="none" role="button" tabindex="0">
+              1
+            </button>
+          </li>
+          <li
+            aria-hidden="true"
+            role="presentation"
+            aria-selected="false"
+            aria-controls="navigation01"
+            id="slick-slide01"
+            @click="activateSlickDot(2)"
+            :class="{ 'slick-active': slickItemActive == 2 }"
+          >
+            <button type="button" data-role="none" role="button" tabindex="0">
+              2
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -423,23 +488,184 @@
       </div>
     </div>
   </section>
-  <section
-    class="landing-page-section section-impact"
-    style="height: 525px; background-color: lightgreen;"
-  ></section>
+  <section class="landing-page-section section-impact">
+    <div class="container">
+      <div class="impact-headline">Our community’s impact</div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="impact-item-list">
+            <div
+              @click="activateImpactDot(1)"
+              :class="{ active: impactItemAcitve == 1 }"
+              class="impact-item"
+            >
+              <div class="impact-animation impact-animation--co2">
+                <div
+                  class="impact-co2-cloud"
+                  style="transform: translate3d(0px, 1.6608px, 0px);"
+                ></div>
+                <div
+                  class="impact-co2-arrow"
+                  style="opacity: 0.4152; transform: translate3d(0px, 3.8925px, 0px);"
+                ></div>
+                <div class="impact-co2-tree"></div>
+              </div>
+              <div class="impact-badge">
+                <span class="impact-value">
+                  <span class="impact-value" data-dynamic-var="CO2"
+                    >276,034,626</span
+                  >
+                  <span class="impact-unit">KG</span>
+                </span>
+                <div class="impact-caption">CO2 saved</div>
+                <div class="impact-desc">
+                  As many as the amount of CO2 that
+                  <span
+                    data-dynamic-var="CO2"
+                    data-dynamic-eval="Math.floor($/10)"
+                    >27,603,462</span
+                  >
+                  trees consume every year.
+                </div>
+              </div>
+            </div>
+
+            <div
+              @click="activateImpactDot(2)"
+              :class="{ active: impactItemAcitve == 2 }"
+              class="impact-item "
+            >
+              <div class="impact-animation impact-animation--batteries">
+                <div class="impact-battery-charger">
+                  <div class="impact-battery-seat impact-battery-seat--left">
+                    <div
+                      class="impact-battery"
+                      style="opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0);"
+                    >
+                      <div
+                        class="impact-battery-energy"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 30);"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="impact-battery-seat impact-battery-seat--right">
+                    <div
+                      class="impact-battery"
+                      style="opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0);"
+                    >
+                      <div
+                        class="impact-battery-energy"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 30);"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="impact-badge">
+                <span class="impact-value">
+                  <span class="impact-value" data-dynamic-var="Swap"
+                    >182,489,080</span
+                  >
+                  <span class="impact-unit"></span>
+                </span>
+                <div class="impact-caption">Batteries swapped</div>
+                <div class="impact-desc">
+                  There are more than
+                  <span
+                    data-dynamic-var="SwapAvg30Days"
+                    data-dynamic-eval="Math.floor($)"
+                    >280,801</span
+                  >
+                  batteries swapped per day in the last 30 days.
+                </div>
+              </div>
+            </div>
+
+            <div
+              @click="activateImpactDot(3)"
+              :class="{ active: impactItemAcitve == 3 }"
+              class="impact-item"
+            >
+              <div class="impact-animation impact-animation--earth">
+                <div
+                  class="impact-earth"
+                  style="transform: translate3d(0px, -1.557px, 0px);"
+                >
+                  <div
+                    class="impact-earth-track"
+                    style="transform: matrix3d(0.918066, -0.396427, 0, 0, 0.396427, 0.918066, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"
+                  ></div>
+                </div>
+              </div>
+              <div class="impact-badge">
+                <span class="impact-value">
+                  <span class="impact-value" data-dynamic-var="Mileage"
+                    >3,347,075,143</span
+                  >
+                  <span class="impact-unit">KM</span>
+                </span>
+                <div class="impact-caption">Total distance covered</div>
+                <div class="impact-desc">
+                  As long as the distance traveling around the Earth via equator
+                  <span
+                    data-dynamic-var="Mileage"
+                    data-dynamic-eval="Math.floor($/40000)"
+                    >83,676</span
+                  >
+                  times.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="impact-dots">
+            <div
+              @click="activateImpactDot(1)"
+              :class="{ active: impactItemAcitve == 1 }"
+              class="impact-dot"
+            ></div>
+            <div
+              @click="activateImpactDot(2)"
+              :class="{ active: impactItemAcitve == 2 }"
+              class="impact-dot"
+            ></div>
+            <div
+              @click="activateImpactDot(3)"
+              :class="{ active: impactItemAcitve == 3 }"
+              class="impact-dot"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: "Home",
+  data() {
+    return {
+      impactItemAcitve: 1,
+      slickItemActive: 1,
+    };
+  },
+  methods: {
+    activateImpactDot(el) {
+      this.impactItemAcitve = el;
+    },
+    activateSlickDot(el){
+      this.slickItemActive = el;
+    }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .banner-container {
-  height: calc(100vh - 120px);
-  min-height: 680px;
-  max-height: 1200px;
+  position: relative;
+  height: calc(100vh - 80px);
+  min-height: 420px;
+  max-height: 760px;
 }
 .baner-list {
   height: 100% !important;
@@ -688,15 +914,6 @@ export default {
   margin: 0;
   padding: 0;
 }
-.banner-list,
-.slick-list,
-.slick-track {
-  height: 100% !important;
-}
-.slick-slider .slick-track,
-.slick-slider .slick-list {
-  transform: translate3d(0, 0, 0);
-}
 .social-post-list .slick-list,
 .blog-post-list .slick-list {
   position: absolute;
@@ -713,6 +930,18 @@ export default {
 .slick-list,
 .slick-track {
   height: 100% !important;
+}
+.banner-list {
+  visibility: hidden;
+}
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+.banner-list.slick-initialized {
+  visibility: visible;
 }
 .slick-slider .slick-track,
 .slick-slider .slick-list {
@@ -731,6 +960,188 @@ export default {
   height: 100%;
   min-height: 1px;
   display: none;
+}
+.banner-content-layer {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  bottom: 8.5%;
+}
+.banner--viva-mix .banner-content-layer {
+  bottom: 0;
+  top: 65%;
+}
+:lang(en) .banner--viva-mix .banner-content-layer {
+  top: 72%;
+}
+.banner-title {
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0 0 .428em 0;
+    font-size: 8vw;
+}
+.banner--viva-mix .banner-title {
+    display: none;
+}
+.banner-title__model {
+    font-weight: 700;
+}
+.banner-slogan {
+    letter-spacing: .1em;
+    font-weight: 700;
+    margin: 0 0 1.26em 0;
+    font-size: 3.76vw;
+}
+.banner--viva-mix {
+    background: url(//cdn.gogoro.com/resources/images/landing-page/viva-mix/hb-viva-mix-scooter-mobile.png) center/180% no-repeat,url(//cdn.gogoro.com/resources/images/landing-page/viva-mix/hb-viva-mix-bg-mobile.jpg?v1) center/cover no-repeat;
+}
+.banner--viva-mix .banner-slogan {
+    color: #ffffff;
+    font-size: 0;
+    width: 90vw;
+    max-width: 305px;
+    height: 96px;
+    overflow: hidden;
+    text-indent: -199%;
+    background: url(//cdn.gogoro.com/resources/images/landing-page/viva-mix/hb-viva-mix-slogan.svg) center/contain no-repeat;
+}
+:lang(en) .banner--viva-mix .banner-slogan {
+    height: 70px;
+    background-image: url(//cdn.gogoro.com/resources/images/landing-page/viva-mix/hb-viva-mix-slogan-en.svg);
+}
+.banner-actions {
+    display: flex;
+    justify-content: center;
+}
+.banner-cta {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    letter-spacing: 0.15em;
+    padding: 0 1.66em 0 1.8em;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: transparent;
+    transition: color .25s, background-color .25s;
+}
+.banner--viva-mix .banner-cta {
+    margin-top: 16px;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+.banner--viva-mix .banner-cta:lang(en) {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--font-family-italic);
+}
+.gs-hero {
+    display: block;
+    background: center/cover no-repeat url(//cdn.gogoro.com/resources/pages/landing-page/gs0528/web_global_video_still_image.jpg);
+}
+.gs-video {
+    opacity: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -o-object-fit: cover;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+}
+.slick-dots {
+    position: absolute;
+    bottom: -25px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.slick-dots.slick-dots {
+    bottom: 8px;
+    left: 0;
+}
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+}
+.slick-dots li button {
+    border: 0;
+    background: transparent;
+    display: block;
+    height: 20px;
+    width: 20px;
+    outline: none;
+    line-height: 0px;
+    font-size: 0px;
+    color: transparent;
+    padding: 5px;
+    cursor: pointer;
+}
+.slick-dots li button:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "•";
+    width: 20px;
+    height: 20px;
+    font-family: "slick";
+    font-size: 6px;
+    line-height: 20px;
+    text-align: center;
+    color: black;
+    opacity: 0.25;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots.slick-dots button:before {
+    height: 8px;
+    width: 8px;
+    opacity: 1 !important;
+    border-radius: 50%;
+    border: 2px solid #737d82;
+    background-color: #737d82;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.slick-dots.slick-dots button::before {
+    content: '';
+}
+.slick-dots li button:hover:before, .slick-dots li button:focus:before {
+    opacity: 1;
+}
+.slick-dots li.slick-active button:before {
+    color: black;
+    opacity: 0.75;
+}
+.slick-dots.slick-dots .slick-active button:before {
+    border: 2px solid #fff;
+    background-color: rgba(115,125,130,0);
+}
+.slick-dots.slick-dots button:before {
+    height: 8px;
+    width: 8px;
+    opacity: 1 !important;
+    border-radius: 50%;
+    border: 2px solid #737d82;
+    background-color: #737d82;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 .social-post-item,
 .social-post-copy-wrapper,
@@ -997,7 +1408,236 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
 }
+.section-impact {
+  margin: 6px auto;
+  padding: 1px 0;
+  background-color: #fff;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.impact-headline {
+  font-family: "Graphik", "Noto Sans Black", sans-serif;
+  line-height: 1.28;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-size: 27px;
+  text-align: center;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+:lang(en) .impact-headline {
+  font-family: var(--font-family-base);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.21;
+}
+.row {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+.col-xl-12,
+.col-xl-11,
+.col-xl-10,
+.col-xl-9,
+.col-xl-8,
+.col-xl-7,
+.col-xl-6,
+.col-xl-5,
+.col-xl-4,
+.col-xl-3,
+.col-xl-2,
+.col-xl-1,
+.col-lg-12,
+.col-lg-11,
+.col-lg-10,
+.col-lg-9,
+.col-lg-8,
+.col-lg-7,
+.col-lg-6,
+.col-lg-5,
+.col-lg-4,
+.col-lg-3,
+.col-lg-2,
+.col-lg-1,
+.col-md-12,
+.col-md-11,
+.col-md-10,
+.col-md-9,
+.col-md-8,
+.col-md-7,
+.col-md-6,
+.col-md-5,
+.col-md-4,
+.col-md-3,
+.col-md-2,
+.col-md-1,
+.col-sm-12,
+.col-sm-11,
+.col-sm-10,
+.col-sm-9,
+.col-sm-8,
+.col-sm-7,
+.col-sm-6,
+.col-sm-5,
+.col-sm-4,
+.col-sm-3,
+.col-sm-2,
+.col-sm-1,
+.col-xs-12,
+.col-xs-11,
+.col-xs-10,
+.col-xs-9,
+.col-xs-8,
+.col-xs-7,
+.col-xs-6,
+.col-xs-5,
+.col-xs-4,
+.col-xs-3,
+.col-xs-2,
+.col-xs-1 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.impact-item-list {
+  position: relative;
+  height: 330px;
+}
+.impact-item {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  text-align: center;
+}
+.impact-animation {
+  position: relative;
+  width: 103px;
+  height: 138px;
+  margin: 0 auto 20px auto;
+  transform: scale(0.5);
+  transform-origin: left top;
+}
+.impact-animation {
+  opacity: 0;
+  transition: all 0.5s;
+}
+.inview .impact-item.active .impact-animation {
+  opacity: 1;
+  transition: all 0.5s 0.5s;
+}
+.impact-co2-cloud {
+  width: 144px;
+  height: 93px;
+  position: absolute;
+  left: 30px;
+  top: 11px;
+  background: url("~@/assets/impact-co2-cloud-fad788e12ddf2d3d9c00ffd0998748d275a6c8062aac8adbde4954402c94bc50.svg")
+    center/144px 83px no-repeat;
+}
+.impact-badge {
+  box-flex: 1;
+  -moz-flex: 1;
+  flex: 1;
+}
+.impact-badge {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s;
+}
+.impact-item.active .impact-badge {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.5s 0.5s;
+}
+.impact-value {
+  position: relative;
+  line-height: 1;
+  font-family: "flamasc-ul";
+  font-size: 54px;
+}
+.impact-unit {
+  position: absolute;
+  top: 11px;
+  font-size: 24px;
+  font-family: "flamasc-book";
+  margin-left: 3px;
+}
+.impact-caption {
+  font-size: 20px;
+  margin: 0.5em 0;
+  font-family: "graphik-semib", "PingFangTC-Semibold", "Noto Sans Bold";
+}
+.impact-desc {
+  font-size: 16px;
+}
+.impact-dots {
+  text-align: center;
+  padding: 20px 0 30px 0;
+}
+.impact-dot {
+  padding: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+.impact-dot:before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  border: 2px solid #f1f3f3;
+  background-color: #f1f3f3;
+  transition: all 0.3s;
+}
+.impact-dot.active:before {
+  border: 2px solid #00d7ff;
+  background-color: #fff;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media (min-width: 375px){
+.slick-dots.slick-dots {
+    bottom: 10px;
+}
+}
 @include media-breakpoint-up(sm) {
+  .banner-container {
+    height: calc(100vh - 120px);
+    min-height: 560px;
+    max-height: 1140px;
+  }
+  :lang(en) .banner--viva-mix .banner-content-layer {
+    top: 76%;
+  }
+  .banner-title {
+    font-size: 42px;
+}
+.banner-slogan {
+    font-size: 19px;
+}
+.banner-cta {
+    height: 48px;
+    border-radius: 24px;
+    padding: 0 1.86em 0 2em;
+}
+.slick-dots.slick-dots {
+    bottom: 20px;
+}
   .section-station {
     background-image: linear-gradient(40deg, #40fdcb, #40fdcb 7%, #24ee2c);
   }
@@ -1016,8 +1656,28 @@ export default {
   .quote-text {
     font-size: 32px;
   }
+  .container {
+    max-width: 576px;
+  }
 }
 @include media-breakpoint-up(md) {
+  .banner-container {
+    height: calc(100vh - 120px);
+    min-height: 680px;
+    max-height: 1200px;
+  }
+  .banner-content-layer {
+    bottom: 80px;
+  }
+  .banner--viva-mix .banner-content-layer {
+    top: 69%;
+  }
+  :lang(en) .banner--viva-mix .banner-content-layer {
+    top: 66%;
+  }
+  .banner--viva-mix {
+    background: url(//cdn.gogoro.com/resources/images/landing-page/viva-mix/hb-viva-mix-scooter.png?v1) center/contain no-repeat, url(//cdn.gogoro.com/resources/images/landing-page/viva-mix/hb-viva-mix-bg.png?v1) center/cover no-repeat;
+}
   .campaign-list {
     margin: 0 -3px;
   }
@@ -1112,8 +1772,47 @@ export default {
   .quote-text {
     font-size: 36px;
   }
+  .container {
+    max-width: 720px;
+  }
+  .impact-headline {
+    font-size: 41px;
+  }
+  :lang(en) .impact-headline {
+    font-size: 32px;
+  }
+  .impact-item-list {
+    height: 278px;
+  }
+  .impact-item {
+    display: flex;
+    box-align: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    text-align: left;
+  }
+  .impact-animation {
+    width: 206px;
+    height: 278px;
+    transform: scale(1);
+    transform-origin: center;
+    margin: 0 70px 0 0;
+  }
+  .impact-desc {
+    font-size: 20px;
+  }
 }
 @include media-breakpoint-up(lg) {
+  :lang(en) .banner--viva-mix .banner-content-layer {
+    top: 70%;
+  }
+  .slick-dots.slick-dots button:before {
+    height: 12px;
+    width: 12px;
+}
   .campaign-list {
     margin: 0 -3px;
   }
@@ -1149,13 +1848,62 @@ export default {
     vertical-align: middle;
     float: none !important;
   }
+  .container {
+    max-width: 940px;
+  }
+  :lang(en) .impact-headline {
+    font-size: 42px;
+  }
+  .col-lg-12,
+  .col-lg-11,
+  .col-lg-10,
+  .col-lg-9,
+  .col-lg-8,
+  .col-lg-7,
+  .col-lg-6,
+  .col-lg-5,
+  .col-lg-4,
+  .col-lg-3,
+  .col-lg-2,
+  .col-lg-1 {
+    float: left;
+  }
+  .col-lg-8 {
+    width: 66.6666666667%;
+  }
+  .col-lg-offset-2 {
+    margin-left: 16.6666666667%;
+  }
+  .impact-value {
+    letter-spacing: -2px;
+    font-size: 72px;
+  }
+  .impact-unit {
+    margin-left: 5px;
+    top: 16px;
+  }
 }
 @include media-breakpoint-up(xl) {
+  .banner-container {
+    height: calc(100vh - 200px);
+    max-height: 1640px;
+    min-height: 820px;
+  }
+  :lang(en) .banner--viva-mix .banner-content-layer {
+    top: 74%;
+  }
+  .banner--viva-mix .banner-slogan {
+    max-width: 402px;
+    height: 126px;
+}
   :lang(en) .station-content-container {
     padding: 0 100px;
   }
   .image-station {
     width: 688px;
+  }
+  .container {
+    max-width: 1140px;
   }
 }
 </style>
