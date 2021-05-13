@@ -9,7 +9,7 @@
           <div
             class="slick-track"
             role="listbox"
-            style="opacity: 1; width: 2708px;"
+            style="opacity: 1; width: 100%;"
           >
             <div
               class="banner banner--viva-mix slick-slide slick-current slick-active"
@@ -19,7 +19,8 @@
               tabindex="-1"
               role="option"
               aria-describedby="slick-slide00"
-              style="width: 1354px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;"
+              style="width: 100%; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;"
+              :style="styleSlide00"
             >
               <div class="banner-content-layer">
                 <h2 class="banner-title">
@@ -47,7 +48,8 @@
               tabindex="-1"
               role="option"
               aria-describedby="slick-slide01"
-              style="width: 1354px; position: relative; left: -1354px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
+              style="width: 100%; left: -1354px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
+              :style="styleSlide01"
             >
               <video
                 class="gs-video"
@@ -653,9 +655,37 @@ export default {
     activateImpactDot(el) {
       this.impactItemAcitve = el;
     },
-    activateSlickDot(el){
+    activateSlickDot(el) {
       this.slickItemActive = el;
-    }
+    },
+  },
+  computed: {
+    styleSlide00() {
+      if (this.slickItemActive === 1) {
+        return {
+          opacity: 1,
+          'z-index': 999
+        };
+      } else {
+        return {
+          opacity: 0,
+          'z-index': 998
+        };
+      }
+    },
+    styleSlide01() {
+      if (this.slickItemActive === 2) {
+        return {
+          opacity: 1,
+          'z-index': 999
+        };
+      } else {
+        return {
+          opacity: 0,
+          'z-index': 998
+        };
+      }
+    },
   },
 };
 </script>
