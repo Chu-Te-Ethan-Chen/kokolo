@@ -7,7 +7,7 @@ nav.ggr-nav.ggr-nav--dark.ggr-nav--scrolling-bg
       .gc-container
         ul.ggr-header
           li.ggr-header-item.menuicon-item
-            nav-menu-icon(@click='isActive = !isActive')
+            nav-menu-icon(@click='activateGGRNavNoscroll')
           li.ggr-header-item.logo-item
             logo.
           li.ggr-header-item.my-gogoro-item
@@ -70,6 +70,18 @@ export default {
       this.mainNavbarOpacity = ratio <= 1 ? ratio : 1;
       return;
     },
+    activateGGRNavNoscroll(){
+      this.isActive = !this.isActive;
+      if (this.isActive) {
+        const dom = window.document
+        const htmlNode = dom.getElementsByTagName('html')
+        htmlNode[0].classList.add('ggr-nav-noscroll')
+      } else {
+        const dom = window.document
+        const htmlNode = dom.getElementsByTagName('html')
+        htmlNode[0].classList.remove('ggr-nav-noscroll')
+      }
+    }
   },
 };
 </script>
@@ -111,12 +123,6 @@ export default {
     max-width: 100%;
     padding: 0;
 }
-.gc-container {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-}
 .ggr-header {
     position: relative;
     z-index: 1;
@@ -151,11 +157,6 @@ export default {
     bottom: 0;
     z-index: -1;
 }
-.ggr-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
 .ggr-nav-item--logo {
     width: 105px;
     height: 100%;
@@ -177,6 +178,13 @@ export default {
 }
 .nav-list__link--dark, .nav-list__link--dark:focus, .nav-list__link--dark:visited {
     color: #fff;
+}
+ol, ul, dl {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+ol, ul {
+    padding-left: 0;
 }
 @include media-breakpoint-down(sm){
   .nav-list-enter-active{
@@ -207,9 +215,6 @@ export default {
     overflow: visible;
     position: absolute;
   }
-  .gc-container {
-    max-width: 576px;
-  }
   .ggr-nav-list {
     padding-bottom: 0;
   }
@@ -221,9 +226,6 @@ export default {
   }
 }
 @include media-breakpoint-up(md){
-  .gc-container {
-    max-width: 720px;
-  }
   .ggr-nav-link {
     font-size: 14px;
     padding: 0 14px;
@@ -309,9 +311,6 @@ export default {
   .ggr-header-container .gc-container {
     display: none;
   }
-  .gc-container {
-    max-width: 940px;
-  }
   .ggr-nav-list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -333,11 +332,6 @@ export default {
   }
   .ggr-nav-item--active .nav-list__link--dark,.ggr-nav-item--active .nav-list__link--light,.nav-list__link--dark:active,.nav-list__link--dark:hover,.nav-list__link--light:active,.nav-list__link--light:hover{
       color:#00d7ff
-  }
-}
-@include media-breakpoint-up(xl){
-  .gc-container {
-    max-width: 1140px;
   }
 }
 </style>

@@ -19,16 +19,21 @@
               tabindex="-1"
               role="option"
               aria-describedby="slick-slide00"
-              style="width: 100%; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;"
+              style="
+                width: 100%;
+                position: relative;
+                left: 0px;
+                top: 0px;
+                z-index: 999;
+                opacity: 1;
+              "
               :style="styleSlide00"
             >
               <div class="banner-content-layer">
                 <h2 class="banner-title">
                   Gogoro <span class="banner-title__model">VIVA MIX</span>
                 </h2>
-                <div class="banner-slogan">
-                  MIX IT UP
-                </div>
+                <div class="banner-slogan">MIX IT UP</div>
                 <div class="banner-actions">
                   <a
                     class="banner-cta"
@@ -48,7 +53,14 @@
               tabindex="-1"
               role="option"
               aria-describedby="slick-slide01"
-              style="width: 100%; left: -1354px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
+              style="
+                width: 100%;
+                left: -1354px;
+                top: 0px;
+                z-index: 998;
+                opacity: 0;
+                transition: opacity 500ms ease 0s;
+              "
               :style="styleSlide01"
             >
               <video
@@ -58,7 +70,7 @@
                 autoplay=""
                 loop=""
                 onplay="this.style.opacity = 1;"
-                style="opacity: 1;"
+                style="opacity: 1"
               >
                 <source
                   src="//cdn.gogoro.com/resources/pages/landing-page/gs0528/home_vision_1080_v02.mp4"
@@ -83,32 +95,21 @@
         </div>
 
         <ul class="slick-dots" style="" role="tablist">
-          <li
-            aria-hidden="false"
-            role="presentation"
-            aria-selected="true"
-            aria-controls="navigation00"
-            id="slick-slide00"
-            @click="activateSlickDot(1)"
-            :class="{ 'slick-active': slickItemActive == 1 }"
-          >
-            <button type="button" data-role="none" role="button" tabindex="0">
-              1
-            </button>
-          </li>
-          <li
-            aria-hidden="true"
-            role="presentation"
-            aria-selected="false"
-            aria-controls="navigation01"
-            id="slick-slide01"
-            @click="activateSlickDot(2)"
-            :class="{ 'slick-active': slickItemActive == 2 }"
-          >
-            <button type="button" data-role="none" role="button" tabindex="0">
-              2
-            </button>
-          </li>
+          <template v-for="(i, index) in slickDots" :key="index">
+            <li
+              :aria-hidden="slickItemActive != index"
+              role="presentation"
+              :aria-selected="slickItemActive == index"
+              :aria-controls="`navigation${i}`"
+              :id="`slick-slide${i}`"
+              @click="activateSlickDot(index)"
+              :class="{ 'slick-active': slickItemActive == index }"
+            >
+              <button type="button" data-role="none" role="button" tabindex="0">
+                {{ index }}
+              </button>
+            </li>
+          </template>
         </ul>
       </div>
     </div>
@@ -117,9 +118,7 @@
     <ul class="campaign-list campaign-list--3">
       <li class="campaign-item">
         <a
-          class="campaign
-        campaign--dark
-        campaign--top"
+          class="campaign campaign--dark campaign--top"
           href="http://www.gogoro.com/gogoro-network/"
           target="_self"
         >
@@ -141,9 +140,7 @@
       </li>
       <li class="campaign-item">
         <a
-          class="campaign
-        campaign--dark
-        campaign--top"
+          class="campaign campaign--dark campaign--top"
           href="http://www.gogoro.com/smartscooter/2-series/plus/"
           target="_self"
         >
@@ -165,9 +162,7 @@
       </li>
       <li class="campaign-item">
         <a
-          class="campaign
-        campaign--dark
-        campaign--top"
+          class="campaign campaign--dark campaign--top"
           href="https://www.ridegoshare.com/"
           target="_self"
         >
@@ -212,15 +207,13 @@
   <section class="landing-page-section section-media">
     <div class="media-container-wrapper">
       <div class="media-container blog-posts-container">
-        <div class="media-section-name">
-          5 Partners and Growing
-        </div>
+        <div class="media-section-name">5 Partners and Growing</div>
         <ul class="blog-post-list slick-initialized slick-slider">
           <div aria-live="polite" class="slick-list draggable">
             <div
               class="slick-track"
               role="listbox"
-              style="opacity: 1; width: 567px;"
+              style="opacity: 1; width: 100%"
             >
               <li
                 class="social-post-item slick-slide slick-current slick-active"
@@ -229,7 +222,14 @@
                 tabindex="-1"
                 role="option"
                 aria-describedby="slick-slide10"
-                style="width: 567px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;"
+                style="
+                  width: 100%;
+                  position: relative;
+                  left: 0px;
+                  top: 0px;
+                  z-index: 999;
+                  opacity: 1;
+                "
               >
                 <a
                   class="social-post social-post--light"
@@ -258,9 +258,7 @@
         </ul>
       </div>
       <div class="media-container social-media-container">
-        <div class="media-section-name">
-          Blog
-        </div>
+        <div class="media-section-name">Blog</div>
         <ul class="social-post-list">
           <li class="social-post-item">
             <a
@@ -302,120 +300,38 @@
     <figure class="image-eeyo"></figure>
   </section>
   <section class="landing-page-section section-quotes">
-    <div class="quote-text-list slick-initialized slick-slider">
+    <div
+      ref="quoteTextList"
+      class="quote-text-list slick-initialized slick-slider"
+    >
       <div aria-live="polite" class="slick-list draggable">
         <div
           class="slick-track"
           role="listbox"
-          style="opacity: 1; width: 6720px;"
+          style="opacity: 1"
+          :style="{ width: `${windowWidth * quotes.length}px` }"
         >
-          <a
-            target="_blank"
-            class="quote-link slick-slide"
-            href="http://www.wired.co.uk/article/al-gore-generation-sustainable-capitalism"
-            data-slick-index="0"
-            aria-hidden="true"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide30"
-            style="width: 1120px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
-          >
-            <blockquote>
-              <q class="quote-text"
-                >You have to see it to really appreciate how cool it is,</q
-              >
-              <footer>
-                <cite class="quote-cite">Al Gore, Wired, December 2017</cite>
-              </footer>
-            </blockquote> </a
-          ><a
-            target="_blank"
-            class="quote-link slick-slide"
-            href="http://time.com/4169302/ces-2016-coolest/"
-            data-slick-index="1"
-            aria-hidden="true"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide31"
-            style="width: 1120px; position: relative; left: -1120px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
-          >
-            <blockquote>
-              <q class="quote-text">The 9 Coolest Gadgets from CES 2016</q>
-              <footer>
-                <cite class="quote-cite">Time</cite>
-              </footer>
-            </blockquote> </a
-          ><a
-            target="_blank"
-            class="quote-link slick-slide"
-            href="https://www.cleantech.com/release/cleantech-group-unveils-the-2018-global-cleantech-100-list/"
-            data-slick-index="2"
-            aria-hidden="true"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide32"
-            style="width: 1120px; position: relative; left: -2240px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
-          >
-            <blockquote>
-              <q class="quote-text">2018 Asian Company of the Year</q>
-              <footer>
-                <cite class="quote-cite">Cleantech 100</cite>
-              </footer>
-            </blockquote> </a
-          ><a
-            target="_blank"
-            class="quote-link slick-slide slick-current slick-active"
-            href="https://www.theverge.com/2015/1/9/7509787/verge-awards-best-of-ces-2015"
-            data-slick-index="3"
-            aria-hidden="false"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide33"
-            style="width: 1120px; position: relative; left: -3360px; top: 0px; z-index: 999; opacity: 1;"
-          >
-            <blockquote>
-              <q class="quote-text">2015 CES Best In Show Award</q>
-              <footer>
-                <cite class="quote-cite">The Verge</cite>
-              </footer>
-            </blockquote> </a
-          ><a
-            target="_blank"
-            class="quote-link slick-slide"
-            href="https://asia.nikkei.com/magazine/20180111/Business/Gogoro-wins-the-Nikkei-Asian-Review-Award-for-Excellence"
-            data-slick-index="4"
-            aria-hidden="true"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide34"
-            style="width: 1120px; position: relative; left: -4480px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
-          >
-            <blockquote>
-              <q class="quote-text"
-                >2017 Nikkei Asian Review Award for Excellence</q
-              >
-              <footer>
-                <cite class="quote-cite">Nikkei Asian Review</cite>
-              </footer>
-            </blockquote> </a
-          ><a
-            target="_blank"
-            class="quote-link slick-slide"
-            href="http://blog.gogoro.com/en/gogoro-selected-for-the-2016-sustainia100"
-            data-slick-index="5"
-            aria-hidden="true"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide35"
-            style="width: 1120px; position: relative; left: -5600px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
-          >
-            <blockquote>
-              <q class="quote-text">Selected for the 2016 Sustainia 1000</q>
-              <footer>
-                <cite class="quote-cite">Sustainia</cite>
-              </footer>
-            </blockquote>
-          </a>
+          <template v-for="(quote, index) in quotes" :key="index">
+            <a
+              target="_blank"
+              class="quote-link slick-slide slick-current slick-active"
+              aria-hidden="true"
+              tabindex="-1"
+              role="option"
+              :href="quote.href"
+              :data-slick-index="index"
+              :aria-describedby="quote.ariaDescribedby"
+              :style="styleQuoteText(index)"
+              @click="quoteItemActive = index"
+            >
+              <blockquote>
+                <q class="quote-text">{{ quote.quoteText }}</q>
+                <footer>
+                  <cite class="quote-cite">{{ quote.quoteCite }}</cite>
+                </footer>
+              </blockquote>
+            </a>
+          </template>
         </div>
       </div>
     </div>
@@ -424,68 +340,29 @@
         <div
           class="slick-track"
           role="listbox"
-          style="opacity: 1; width: 30000px; transform: translate3d(-60px, 0px, 0px);"
+          style="
+            opacity: 1;
+            width: 30000px;
+            transform: translate3d(0px, 0px, 0px);
+          "
         >
-          <div
-            class="quote-logo-item slick-slide slick-active"
-            data-slick-index="0"
-            aria-hidden="false"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide20"
-          >
-            <div class="quote-logo quote-logo--wired"></div>
-          </div>
-          <div
-            class="quote-logo-item slick-slide slick-active"
-            data-slick-index="1"
-            aria-hidden="false"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide21"
-          >
-            <div class="quote-logo quote-logo--time"></div>
-          </div>
-          <div
-            class="quote-logo-item slick-slide slick-active"
-            data-slick-index="2"
-            aria-hidden="false"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide22"
-          >
-            <div class="quote-logo quote-logo--cleantech"></div>
-          </div>
-          <div
-            class="quote-logo-item slick-slide slick-current slick-active"
-            data-slick-index="3"
-            aria-hidden="false"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide23"
-          >
-            <div class="quote-logo quote-logo--verge"></div>
-          </div>
-          <div
-            class="quote-logo-item slick-slide slick-active"
-            data-slick-index="4"
-            aria-hidden="false"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide24"
-          >
-            <div class="quote-logo quote-logo--nikkei"></div>
-          </div>
-          <div
-            class="quote-logo-item slick-slide slick-active"
-            data-slick-index="5"
-            aria-hidden="false"
-            tabindex="-1"
-            role="option"
-            aria-describedby="slick-slide25"
-          >
-            <div class="quote-logo quote-logo--sustania"></div>
-          </div>
+          <template v-for="(quote, index) in quotes" :key="index">
+            <div
+              class="quote-logo-item slick-slide slick-active"
+              :data-slick-index="index"
+              aria-hidden="false"
+              tabindex="-1"
+              role="option"
+              :aria-describedby="quote.ariaDescribedby"
+              @click="activateQuoteDot(index)"
+              :class="{ 'slick-current': quoteItemActive == index }"
+            >
+              <div
+                class="quote-logo"
+                :class="`quote-logo--${quote.company}`"
+              ></div>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -497,18 +374,21 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="impact-item-list">
             <div
-              @click="activateImpactDot(1)"
-              :class="{ active: impactItemAcitve == 1 }"
+              @click="activateImpactDot(0)"
+              :class="{ active: impactItemActive == 0 }"
               class="impact-item"
             >
               <div class="impact-animation impact-animation--co2">
                 <div
                   class="impact-co2-cloud"
-                  style="transform: translate3d(0px, 1.6608px, 0px);"
+                  style="transform: translate3d(0px, 1.6608px, 0px)"
                 ></div>
                 <div
                   class="impact-co2-arrow"
-                  style="opacity: 0.4152; transform: translate3d(0px, 3.8925px, 0px);"
+                  style="
+                    opacity: 0.4152;
+                    transform: translate3d(0px, 3.8925px, 0px);
+                  "
                 ></div>
                 <div class="impact-co2-tree"></div>
               </div>
@@ -531,33 +411,32 @@
                 </div>
               </div>
             </div>
-
             <div
-              @click="activateImpactDot(2)"
-              :class="{ active: impactItemAcitve == 2 }"
-              class="impact-item "
+              @click="activateImpactDot(1)"
+              :class="{ active: impactItemActive == 1 }"
+              class="impact-item"
             >
               <div class="impact-animation impact-animation--batteries">
                 <div class="impact-battery-charger">
                   <div class="impact-battery-seat impact-battery-seat--left">
                     <div
                       class="impact-battery"
-                      style="opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0);"
+                      style="opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0)"
                     >
                       <div
                         class="impact-battery-energy"
-                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 30);"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 30)"
                       ></div>
                     </div>
                   </div>
                   <div class="impact-battery-seat impact-battery-seat--right">
                     <div
                       class="impact-battery"
-                      style="opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0);"
+                      style="opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0)"
                     >
                       <div
                         class="impact-battery-energy"
-                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 30);"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 30)"
                       ></div>
                     </div>
                   </div>
@@ -582,20 +461,38 @@
                 </div>
               </div>
             </div>
-
             <div
-              @click="activateImpactDot(3)"
-              :class="{ active: impactItemAcitve == 3 }"
+              @click="activateImpactDot(2)"
+              :class="{ active: impactItemActive == 2 }"
               class="impact-item"
             >
               <div class="impact-animation impact-animation--earth">
                 <div
                   class="impact-earth"
-                  style="transform: translate3d(0px, -1.557px, 0px);"
+                  style="transform: translate3d(0px, -1.557px, 0px)"
                 >
                   <div
                     class="impact-earth-track"
-                    style="transform: matrix3d(0.918066, -0.396427, 0, 0, 0.396427, 0.918066, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"
+                    style="
+                      transform: matrix3d(
+                        0.918066,
+                        -0.396427,
+                        0,
+                        0,
+                        0.396427,
+                        0.918066,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1
+                      );
+                    "
                   ></div>
                 </div>
               </div>
@@ -620,21 +517,13 @@
             </div>
           </div>
           <div class="impact-dots">
-            <div
-              @click="activateImpactDot(1)"
-              :class="{ active: impactItemAcitve == 1 }"
-              class="impact-dot"
-            ></div>
-            <div
-              @click="activateImpactDot(2)"
-              :class="{ active: impactItemAcitve == 2 }"
-              class="impact-dot"
-            ></div>
-            <div
-              @click="activateImpactDot(3)"
-              :class="{ active: impactItemAcitve == 3 }"
-              class="impact-dot"
-            ></div>
+            <template v-for="(i, index) in impacts" :key="index">
+              <div
+                @click="activateImpactDot(index)"
+                :class="{ active: impactItemActive == index }"
+                class="impact-dot"
+              ></div>
+            </template>
           </div>
         </div>
       </div>
@@ -647,45 +536,176 @@ export default {
   name: "Home",
   data() {
     return {
-      impactItemAcitve: 1,
-      slickItemActive: 1,
+      windowWidth: window.innerWidth,
+      slickItemActive: 0,
+      slickItemTimer: null,
+      slickDots: ["00", "01"],
+      quoteItemActive: 0,
+      quoteItemTimer: null,
+      quotes: [
+        {
+          company: "wired",
+          herf:
+            "http://www.wired.co.uk/article/al-gore-generation-sustainable-capitalism",
+          ariaDescribedby: "slick-slide30",
+          quoteText: "You have to see it to really appreciate how cool it is,",
+          quoteCite: "Al Gore, Wired, December 2017",
+        },
+        {
+          company: "time",
+          herf: "http://time.com/4169302/ces-2016-coolest/",
+          ariaDescribedby: "slick-slide31",
+          quoteText: "The 9 Coolest Gadgets from CES 2016",
+          quoteCite: "Time",
+        },
+        {
+          company: "cleantech",
+          herf:
+            "https://www.cleantech.com/release/cleantech-group-unveils-the-2018-global-cleantech-100-list/",
+          ariaDescribedby: "slick-slide32",
+          quoteText: "2018 Asian Company of the Year",
+          quoteCite: "Cleantech 100",
+        },
+        {
+          company: "verge",
+          herf:
+            "https://www.theverge.com/2015/1/9/7509787/verge-awards-best-of-ces-2015",
+          ariaDescribedby: "slick-slide33",
+          quoteText: "2015 CES Best In Show Award",
+          quoteCite: "The Verge",
+        },
+        {
+          company: "nikkei",
+          herf:
+            "https://asia.nikkei.com/magazine/20180111/Business/Gogoro-wins-the-Nikkei-Asian-Review-Award-for-Excellence",
+          ariaDescribedby: "slick-slide34",
+          quoteText: "2017 Nikkei Asian Review Award for Excellence",
+          quoteCite: "Nikkei Asian Review",
+        },
+        {
+          company: "sustania",
+          herf:
+            "http://blog.gogoro.com/en/gogoro-selected-for-the-2016-sustainia100",
+          ariaDescribedby: "slick-slide35",
+          quoteText: "Selected for the 2016 Sustainia 1000",
+          quoteCite: "Sustainia",
+        },
+      ],
+      quotesWidth: 1140,
+      impactItemActive: 0,
+      impactItemTimer: null,
+      impacts: [0, 1, 2],
     };
   },
   methods: {
     activateImpactDot(el) {
-      this.impactItemAcitve = el;
+      this.impactItemActive = el;
     },
     activateSlickDot(el) {
       this.slickItemActive = el;
     },
+    activateQuoteDot(el) {
+      this.quoteItemActive = el;
+    },
+    styleQuoteText(index) {
+      if (index === this.quoteItemActive) {
+        return {
+          width: `${this.quotesWidth}px`,
+          position: "relative",
+          left: `${this.quotesWidth * index * -1}px`,
+          top: "0px",
+          "z-index": 999,
+          opacity: 1,
+          transition: "opacity 500ms ease 0s",
+        };
+      } else {
+        return {
+          width: `${this.quotesWidth}px`,
+          position: "relative",
+          left: `${this.quotesWidth * index * -1}px`,
+          top: "0px",
+          "z-index": 998,
+          opacity: 0,
+          transition: "opacity 500ms ease 0s",
+        };
+      }
+    },
+    onResize() {
+      const quoteTextList = this.$refs.quoteTextList;
+      this.quotesWidth = quoteTextList.clientWidth;
+      this.windowWidth = window.innerWidth;
+    },
+    setSlickItemTimer() {
+      this.slickItemTimer = setInterval(() => {
+        this.slickItemActive =
+          (this.slickItemActive + 1) % this.slickDots.length;
+      }, 5000);
+    },
+    clearSlickItemTimer() {
+      clearInterval(this.slickItemTimer);
+      this.slickItemTimer = null;
+    },
+    setQuoteItemTimer() {
+      this.quoteItemTimer = setInterval(() => {
+        this.quoteItemActive = (this.quoteItemActive + 1) % this.quotes.length;
+      }, 5000);
+    },
+    clearQuoteItemTimer() {
+      clearInterval(this.quoteItemTimer);
+      this.quoteItemTimer = null;
+    },
+    setImpactItemTimer() {
+      this.impactItemTimer = setInterval(() => {
+        this.impactItemActive =
+          (this.impactItemActive + 1) % this.impacts.length;
+      }, 5000);
+    },
+    clearImpactItemTimer() {
+      clearInterval(this.impactItemTimer);
+      this.impactItemTimer = null;
+    },
   },
   computed: {
     styleSlide00() {
-      if (this.slickItemActive === 1) {
+      if (this.slickItemActive === 0) {
         return {
           opacity: 1,
-          'z-index': 999
+          "z-index": 999,
         };
       } else {
         return {
           opacity: 0,
-          'z-index': 998
+          "z-index": 998,
         };
       }
     },
     styleSlide01() {
-      if (this.slickItemActive === 2) {
+      if (this.slickItemActive === 1) {
         return {
           opacity: 1,
-          'z-index': 999
+          "z-index": 999,
         };
       } else {
         return {
           opacity: 0,
-          'z-index': 998
+          "z-index": 998,
         };
       }
     },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.onResize);
+    });
+    this.setSlickItemTimer();
+    this.setQuoteItemTimer();
+    this.setImpactItemTimer();
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.onResize);
+    this.clearSlickItemTimer();
+    this.clearQuoteItemTimer();
+    this.clearImpactItemTimer();
   },
 };
 </script>
@@ -911,18 +931,6 @@ export default {
   font-weight: 600;
   font-family: var(--font-family-base);
 }
-.slick-slider {
-  position: relative;
-  display: block;
-  box-sizing: border-box;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
-}
 .social-post-list,
 .blog-post-list {
   position: relative;
@@ -1006,6 +1014,10 @@ export default {
 }
 :lang(en) .banner--viva-mix .banner-content-layer {
   top: 72%;
+}
+.banner--viva-mix .banner-cta:hover {
+    color: #000;
+    background: #fff;
 }
 .banner-title {
     font-family: inherit;
@@ -1414,6 +1426,9 @@ export default {
   transition: opacity 0.3s;
   opacity: 0;
 }
+.quote-logo-item.slick-current .quote-logo::after {
+    opacity: 1;
+}
 .quote-logo-item.slick-current::after {
   content: "";
   display: block;
@@ -1595,7 +1610,7 @@ export default {
 .impact-unit {
   position: absolute;
   top: 11px;
-  font-size: 24px;
+  font-size: 14px;
   font-family: "flamasc-book";
   margin-left: 3px;
 }

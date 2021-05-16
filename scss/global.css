@@ -29,7 +29,7 @@ a {
 }
 a {
   color: #0275d8;
-  text-decoration: none;
+  text-decoration: none !important;;
 }
 a,
 area,
@@ -63,6 +63,12 @@ label {
   display: inline-block;
   margin-bottom: 0.5rem;
 }
+
+:lang(en) .section-station {
+  color: #000000;
+  font-family: var(--font-family-base);
+  padding: 40px 0 0 0;
+}
 .nav-list__link--dark,
 .nav-list__link--dark:focus,
 .nav-list__link--dark:visited {
@@ -93,16 +99,30 @@ label {
   content: "";
   display: table;
 }
+@media (max-width: 543px){
+  html.ggr-nav-noscroll, html.ggr-nav-noscroll body {
+    overflow: hidden!important;
+  }
+}
 @media (min-width: 544px) {
   .gc-container {
     max-width: 576px;
   }
 }
-
+@media (max-width: 767px){
+  .media-container+.media-container {
+    border-top: 6px solid #f8f8f8;
+}
+}
 @media (min-width: 768px) {
   .gc-container {
     max-width: 720px;
   }
+}
+@media (max-width: 991px){
+  .campaign-item+.campaign-item {
+    border-top: 6px solid #f8f8f8;
+}
 }
 @media (min-width: 992px) {
   .gc-container {
