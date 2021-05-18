@@ -1,28 +1,24 @@
-<template>
-  <footer class="ggr-footer">
-    <div class="gc-container gc-clear">
-      <div class="locale">
-        <select class="locale-select"
-          ><option disabled="disabled" value=""
-            >Region</option
-          ><option value="en-US">Global</option
-          ><option value="zh-TW">Taiwan</option></select
-        >
-      </div>
-      <div class="legal">
-        <div class="legal-copyright">
-          Copyright © 2014-2021 Gogoro Inc. All rights reserved.
-        </div>
-        <div class="legal-links">
-          <a href="/privacy-policy/" class="legal-link">
-            Privacy Policy </a
-          ><a href="/terms-of-use/" class="legal-link">
-            Terms of Use
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
+<template lang='pug'>
+footer.ggr-footer
+  .gc-container.gc-clear
+    .locale
+      select.locale-select
+        option(disabled value) Region
+        option(value='en-US') Global
+        option(value='zh-TW') Taiwan
+    .legal
+      .legal-copyright.
+        
+        Copyright © 2014-2021 Gogoro Inc. All rights reserved.
+        
+      .legal-links
+        a.legal-link(href='/privacy-policy/').
+          
+          Privacy Policy 
+        a.legal-link(href='/terms-of-use/').
+          
+          Terms of Use
+          
 </template>
 
 <script>

@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 a.nav-list__link.nav-list__link--login.nav-list__link--dark(href='//my.gogoro.com?lang=en-US') Login
 </template>
 

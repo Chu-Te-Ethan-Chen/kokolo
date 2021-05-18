@@ -1,153 +1,56 @@
-<template>
-  <nav class="ggr-directory">
-    <div class="gc-container">
-      <div class="dt-layout">
-        <div class="dt-socials">
-          <a href="" class="dt-icon dt-icon--logo"></a>
-          <div class="dt-social-links">
-            <a
-            
-              href="http://www.facebook.com/gogoro"
-              target="_blank"
-              class="dt-social-link"
-              ><i class="dt-icon dt-icon--facebook"></i
-              >Facebook </a
-            ><a
-            
-              href="http://www.youtube.com/GogoroChannel"
-              target="_blank"
-              class="dt-social-link"
-              ><i class="dt-icon dt-icon--youtube"></i
-              >Youtube </a
-            ><a
-            
-              href="http://twitter.com/WeAreGogoro"
-              target="_blank"
-              class="dt-social-link"
-              ><i class="dt-icon dt-icon--twitter"></i
-              >Twitter </a
-            ><a
-            
-              href="http://www.instagram.com/gogoro_taiwan/"
-              target="_blank"
-              class="dt-social-link"
-              ><i class="dt-icon dt-icon--instagram"></i
-              >Instagram </a
-            ><a
-            
-              href="http://www.linkedin.com/company/gogoro"
-              target="_blank"
-              class="dt-social-link"
-              ><i class="dt-icon dt-icon--linkedin"></i
-              >Linkedin
-            </a>
-          </div>
-        </div>
-        <div class="dt-sections">
-          <div data-v-3eb1cdaa="" class="dt-section">
-            <div data-v-3eb1cdaa="" class="dt-section-name">Smartscooter</div>
-            <div data-v-3eb1cdaa="" class="dt-section-links">
-              <a
-                data-v-3eb1cdaa=""
-                href="/smartscooter/s-performance/"
-                class="dt-section-link"
-                >S Performance</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="/smartscooter/1-series/"
-                class="dt-section-link"
-                >Gogoro 1 Series</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="/smartscooter/2-series/"
-                class="dt-section-link"
-                >Gogoro 2 Series</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="/smartscooter/3-series/"
-                class="dt-section-link"
-                >Gogoro 3 Series</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="/smartscooter/viva/"
-                class="dt-section-link"
-                >Gogoro VIVA</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="/smartscooter/viva/mix/"
-                class="dt-section-link"
-                >Gogoro VIVA MIX</a
-              ><a data-v-3eb1cdaa="" href="/software/" class="dt-section-link"
-                >iQ System®</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="/smartscooter/specs/"
-                class="dt-section-link"
-                >Compare Specs</a
-              >
-            </div>
-          </div>
-          <div data-v-3eb1cdaa="" class="dt-section">
-            <div data-v-3eb1cdaa="" class="dt-section-name">Smart Power</div>
-            <div data-v-3eb1cdaa="" class="dt-section-links">
-              <a
-                data-v-3eb1cdaa=""
-                href="/gogoro-network/"
-                class="dt-section-link"
-                >Gogoro Network®</a
-              >
-            </div>
-          </div>
-          <div data-v-3eb1cdaa="" class="dt-section">
-            <div data-v-3eb1cdaa="" class="dt-section-name">News</div>
-            <div data-v-3eb1cdaa="" class="dt-section-links">
-              <a data-v-3eb1cdaa="" href="/news/" class="dt-section-link"
-                >Latest</a
-              ><a data-v-3eb1cdaa="" href="/about-us/" class="dt-section-link"
-                >About Us</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="/media-center/"
-                class="dt-section-link"
-                >Media Center</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="/media-center/logos/"
-                class="dt-section-link"
-                >Media Assets</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="/media-center/#section-contact"
-                class="dt-section-link"
-                >Inquires</a
-              >
-            </div>
-          </div>
-          <div data-v-3eb1cdaa="" class="dt-section">
-            <div data-v-3eb1cdaa="" class="dt-section-name">Get Support</div>
-            <div data-v-3eb1cdaa="" class="dt-section-links">
-              <a
-                data-v-3eb1cdaa=""
-                href="https://support.gogoro.com/en/"
-                class="dt-section-link"
-                >Tech Support</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="https://support.gogoro.com/en"
-                class="dt-section-link"
-                >Mail Us</a
-              ><a
-                data-v-3eb1cdaa=""
-                href="https://support.gogoro.com/en/faq/"
-                class="dt-section-link"
-                >FAQ</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
+<template lang='pug'>
+nav.ggr-directory
+  .gc-container
+    .dt-layout
+      .dt-socials
+        a.dt-icon.dt-icon--logo(href)
+        .dt-social-links
+          a.dt-social-link(href='http://www.facebook.com/gogoro' target='_blank')
+            i.dt-icon.dt-icon--facebook
+            | Facebook 
+          a.dt-social-link(href='http://www.youtube.com/GogoroChannel' target='_blank')
+            i.dt-icon.dt-icon--youtube
+            | Youtube 
+          a.dt-social-link(href='http://twitter.com/WeAreGogoro' target='_blank')
+            i.dt-icon.dt-icon--twitter
+            | Twitter 
+          a.dt-social-link(href='http://www.instagram.com/gogoro_taiwan/' target='_blank')
+            i.dt-icon.dt-icon--instagram
+            | Instagram 
+          a.dt-social-link(href='http://www.linkedin.com/company/gogoro' target='_blank')
+            i.dt-icon.dt-icon--linkedin
+            | Linkedin
+
+      .dt-sections
+        .dt-section(data-v-3eb1cdaa)
+          .dt-section-name(data-v-3eb1cdaa) Smartscooter
+          .dt-section-links(data-v-3eb1cdaa)
+            a.dt-section-link(data-v-3eb1cdaa href='/smartscooter/s-performance/') S Performance
+            a.dt-section-link(data-v-3eb1cdaa href='/smartscooter/1-series/') Gogoro 1 Series
+            a.dt-section-link(data-v-3eb1cdaa href='/smartscooter/2-series/') Gogoro 2 Series
+            a.dt-section-link(data-v-3eb1cdaa href='/smartscooter/3-series/') Gogoro 3 Series
+            a.dt-section-link(data-v-3eb1cdaa href='/smartscooter/viva/') Gogoro VIVA
+            a.dt-section-link(data-v-3eb1cdaa href='/smartscooter/viva/mix/') Gogoro VIVA MIX
+            a.dt-section-link(data-v-3eb1cdaa href='/software/') iQ System®
+            a.dt-section-link(data-v-3eb1cdaa href='/smartscooter/specs/') Compare Specs
+        .dt-section(data-v-3eb1cdaa)
+          .dt-section-name(data-v-3eb1cdaa) Smart Power
+          .dt-section-links(data-v-3eb1cdaa)
+            a.dt-section-link(data-v-3eb1cdaa href='/gogoro-network/') Gogoro Network®
+        .dt-section(data-v-3eb1cdaa)
+          .dt-section-name(data-v-3eb1cdaa) News
+          .dt-section-links(data-v-3eb1cdaa)
+            a.dt-section-link(data-v-3eb1cdaa href='/news/') Latest
+            a.dt-section-link(data-v-3eb1cdaa href='/about-us/') About Us
+            a.dt-section-link(data-v-3eb1cdaa href='/media-center/') Media Center
+            a.dt-section-link(data-v-3eb1cdaa href='/media-center/logos/') Media Assets
+            a.dt-section-link(data-v-3eb1cdaa href='/media-center/#section-contact') Inquires
+        .dt-section(data-v-3eb1cdaa)
+          .dt-section-name(data-v-3eb1cdaa) Get Support
+          .dt-section-links(data-v-3eb1cdaa)
+            a.dt-section-link(data-v-3eb1cdaa href='https://support.gogoro.com/en/') Tech Support
+            a.dt-section-link(data-v-3eb1cdaa href='https://support.gogoro.com/en') Mail Us
+            a.dt-section-link(data-v-3eb1cdaa href='https://support.gogoro.com/en/faq/') FAQ
 </template>
 
 <script>

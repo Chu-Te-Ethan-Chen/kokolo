@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 label.nav-menuicon(for='nav-menustate' :class='{\'nav-menuicon--open\' : isActive}' @click='isActive = !isActive')
   span.nav-menuicon-bread.nav-menuicon-bread--top
     span.nav-menuicon-crust.nav-menuicon-crust--top

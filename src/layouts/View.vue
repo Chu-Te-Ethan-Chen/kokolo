@@ -1,7 +1,5 @@
-<template>
-  <!-- <div> -->
-    <router-view :key="$route.path" />
-  <!-- </div> -->
+<template lang='pug'>
+router-view(:key='$route.path')
 </template>
 
 <script>

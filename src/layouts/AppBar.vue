@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 label.close-nested-menu(for='close-menu-toggle' style='display: none')
 nav.ggr-nav.ggr-nav--dark.ggr-nav--scrolling-bg
   input#nav-menustate.nav-menustate.gc-hide(type='checkbox')

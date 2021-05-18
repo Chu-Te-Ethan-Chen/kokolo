@@ -1,5 +1,5 @@
-<template>
-  <a href="/" class="nav-logo nav-logo--dark">Gogoro</a>
+<template lang='pug'>
+a.nav-logo.nav-logo--dark(href='/') Gogoro
 </template>
 
 <script>
