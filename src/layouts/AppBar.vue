@@ -107,7 +107,7 @@ export default {
     transition: backgroundColor .3s;
 }
 .ggr-nav-list-container {
-    background-color: $--nav-list-bg-color;
+    background-color: var(--nav-list-bg-color);
 }
 .ggr-nav-list-container {
     position: fixed;
@@ -208,7 +208,7 @@ ol, ul {
 }
 @include media-breakpoint-up(sm){
   .ggr-nav-list-container {
-      background-color: $--nav-sm-list-bg-color;
+      background-color: var(--nav-sm-list-bg-color);
   }
   .ggr-nav-list-container {
     height: auto;
